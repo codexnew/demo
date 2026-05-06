@@ -1,15 +1,12 @@
 <?php
-// Database configuration constants
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'student_management_db');
+$host = 'localhost';
+$db   = 'student_db';
+$user = 'root';
+$pass = '';   // XAMPP এ খালি রাখুন
 
-[span_4](start_span)// Establishing connection[span_4](end_span)
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$conn = new mysqli($host, $user, $pass, $db);
 
-// Connection check
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
